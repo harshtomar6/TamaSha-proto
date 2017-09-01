@@ -1,0 +1,14 @@
+#content{
+  padding-top: 55px;
+  color: white;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.normal{
+  margin-left: 50px;
+}
+
+.shrinked{
+  margin-left: 260px;
+}

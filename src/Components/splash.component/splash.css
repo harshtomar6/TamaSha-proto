@@ -1,0 +1,11 @@
+#splash{
+  padding-top: 20%;
+  text-align: center;
+}
+
+#splash h1{
+  font-family: 'Lobster';
+  font-weight: bold;
+  color:#ACE6C0;
+  font-size: 56px;
+}

@@ -1,0 +1,35 @@
+#topbar{
+  position: fixed;
+  z-index: 3;
+  background-color: #2A363B;
+  padding-top: 15px;
+  width: 100%;
+  color: #ACE6C0;
+  font-size: 28px;
+  min-height: 45px;
+  box-shadow: 5px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+#topbar a{
+  position: absolute;
+  padding: 6px 12px 6px 12px;
+  color: #ACE6C0;
+  top: 0;
+}
+
+#topbar a:hover{
+  background-color: rgba(255, 255, 255, 0.2);;
+}
+
+#topbar h3{
+  font-family: 'Lobster';
+  font-weight: bold;
+}
+
+.searchIcon{
+  position: absolute;
+  padding: 6px 12px 6px 12px;
+  color: #ACE6C0;
+  top: 0;
+  right: 0;
+}

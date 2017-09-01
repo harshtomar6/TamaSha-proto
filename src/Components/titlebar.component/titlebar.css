@@ -1,0 +1,8 @@
+#titlebar{
+  background-color: #ace6c0; 
+  color: black;
+  height: 30px;
+  padding: 12px 3px 12px 3px;
+  -webkit-app-region: drag;
+  -webkit-user-select: none;
+}
