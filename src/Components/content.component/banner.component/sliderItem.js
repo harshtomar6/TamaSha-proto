@@ -2,7 +2,7 @@ import React from 'react';
 import './banner.css';
 
 class SliderItem extends React.Component{
-  
+
   constructor(){
     super()
     this.state = {
