@@ -1,7 +1,5 @@
 import React from 'react';
 import './sidebar.css';
-import HiddenElements from './hiddenElements';
-import ExpandedElements from './expandedElements';
 const request = require('request');
 
 class SideBar extends React.Component{
@@ -62,7 +60,7 @@ class SideBar extends React.Component{
       case 0:
         if(Object.keys(this.state.data.home).length){
           console.log("home")
-          
+
         }
         else
           this.getData('http://localhost:3638/api/', (res) => {
