@@ -51,7 +51,7 @@ class Banner extends React.Component{
 
   getItems(props){
     const Items = this.state.data.map((element) =>  
-      <SliderItem data={element} key={element.top_banner} />
+      <SliderItem data={element} key={element._id} />
     )
     
     return(

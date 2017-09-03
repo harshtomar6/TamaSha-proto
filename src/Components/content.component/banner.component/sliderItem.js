@@ -16,18 +16,18 @@ class SliderItem extends React.Component{
   componentWillMount(){
     this.setState({
       "styles": {
-        "backgroundImage": 'url("'+this.props.data.top_banner+'")',
+        "backgroundImage": 'url("'+this.props.data.image+'")',
         "backgroundSize": "cover"
       }
     })
   }
 
-  render(){
+  render(){   
     return (
       <div className="slider-item" style={this.state.styles}>
         <div className="inner">
-          <h4 className="text-center tit">{this.props.data.top_name}</h4>
-          <p className="text-center des">{this.props.data.top_des}</p>
+          <h4 className="text-center tit">{this.props.data.name}</h4>
+          <p className="text-center des">{this.props.data.description}</p>
           <p className="text-center"><button type="button" className="btn watch-btn">Watch Now</button></p>
         </div>
       </div>
