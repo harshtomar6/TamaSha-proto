@@ -1,6 +1,7 @@
 import React from 'react';
 import './sidebar.css';
 const request = require('request');
+const config = require('./../../config')
 
 class SideBar extends React.Component{
 
@@ -63,7 +64,7 @@ class SideBar extends React.Component{
 
         }
         else
-          this.getData('http://localhost:3638/api/', (res) => {
+          this.getData(config.SERVER_URI, (res) => {
             this.setState({
               class: this.state.class,
               data: {
@@ -80,7 +81,7 @@ class SideBar extends React.Component{
           console.log("movies")
         }
         else
-          this.getData('http://localhost:3638/api/all-movies', (res) => {
+          this.getData(config.SERVER_URI+'/all-movies', (res) => {
             this.setState({
               class: this.state.class,
               data: {
@@ -97,7 +98,7 @@ class SideBar extends React.Component{
           console.log("Tv")
         }
         else
-          this.getData('http://localhost:3638/api/tv', (res) => {
+          this.getData(config.SERVER_URI+'/tv', (res) => {
             this.setState({
               class: this.state.class,
               data: {
@@ -114,7 +115,7 @@ class SideBar extends React.Component{
           console.log("imdb")
         }
         else
-          this.getData('http://localhost:3638/api/top-imdb', (res) => {
+          this.getData(config.SERVER_URI+'/top-imdb', (res) => {
             this.setState({
               class: this.state.class,
               data: {

@@ -44,14 +44,16 @@ class Banner extends React.Component{
       document.getElementById('banner').childNodes[9].className = 'slider-item';
       document.getElementById('below').childNodes[i].className = "dot active";
       document.getElementById('below').childNodes[9].className = "dot";
-    }
-      
-    
+    }   
+  }
+
+  handleNavigation(data){
+    this.props.handleNav(data)
   }
 
   getItems(props){
     const Items = this.state.data.map((element) =>  
-      <SliderItem data={element} key={element._id} />
+      <SliderItem data={element} key={element._id} navigate={this.handleNavigation.bind(this)} />
     )
     
     return(

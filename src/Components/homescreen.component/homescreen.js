@@ -9,12 +9,19 @@ class HomeScreen extends React.Component{
     super();
     this.state = {
       class: 'hidden',
-      contentClass: 'normal'
+      contentClass: 'normal',
+      page: 1,
+      loadData: ''
     }
   }
 
   handleToggle(classname){
-    this.setState({class: classname.class, contentClass: classname.contentClass})
+    this.setState({
+            class: classname.class, 
+            contentClass: classname.contentClass, 
+            page: this.state.page, 
+            loadData: this.state.loadData
+          })
   }
 
   render(){
@@ -22,7 +29,7 @@ class HomeScreen extends React.Component{
       <div>
         <TopBar toggle={this.handleToggle.bind(this)}/>
         <SideBar class={this.state.class} homeData={this.props.data}/>
-        <Content data={this.props.data} class={this.state.contentClass}/>  
+        <Content data={this.props.data} class={this.state.contentClass} />
       </div>
     );
   }

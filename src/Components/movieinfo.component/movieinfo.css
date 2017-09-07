@@ -1,0 +1,43 @@
+#bannerWraper{ 
+  padding: 8px 8px 8px 8px;
+}
+.banner{
+  height: 500px;
+  box-shadow: 3px 2px 5px rgba(0, 0, 0, 0.5), -2px -2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.play-icon{
+  color: #ACE6C0;
+  font-size: 120px;
+  box-shadow: 0 0 10px rgba(0, 0, 0.7);
+}
+
+.play-icon i{
+  cursor: pointer;
+  margin-top: 15%;
+  box-shadow: 0 0 10px rgba(0, 0, 0.7)
+}
+
+.info{
+  padding-top: 30px;
+}
+
+.info img{
+  height: 200px;
+  width: 150px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.thumb{
+  display: flex;
+}
+
+.genre{
+  background-color: #ACE6C0;
+  color: black;
+  padding: 8px;
+  border-radius: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
