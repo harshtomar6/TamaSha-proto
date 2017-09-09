@@ -1,0 +1,103 @@
+#user-wraper{
+  width: 100%;
+  height: 1000%;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  animation-name: fade;
+  animation-duration: 0.7s;
+}
+
+#modal{
+  margin: 10% auto;
+  width: 400px;
+  height: 100px;
+  box-shadow: 3px 2px 5px rgba(0, 0, 0, 0.7), -2px -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#modal-header{
+  background: #0E2431;
+  color: #359768;
+  font-weight: bold;
+  padding: 15px 5px;
+  border-top: 1px solid #484848;
+  border-left: 1px solid #484848;
+  border-right: 1px solid #484848;
+  font-size: 28px;
+}
+
+#modal-header p{
+  position: relative;
+  font-size: 28px;
+  top: -40px;
+  right: 10px;
+  float: right;
+  cursor: pointer;
+}
+
+#modal-body{
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: -10px;
+  border-bottom: 1px solid #484848;
+  border-left: 1px solid #484848;
+  border-right: 1px solid #484848;
+  background: #0E2431;
+}
+
+#modal-body input{
+  width: 100%;
+  padding: 10px 6px;
+  margin-bottom: 10px;
+  background-color: #0E2436;
+  border: 1px solid #0E2436;
+  color: white;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.2), -1px -1px 1px rgba(0, 0, 0, 0.17); 
+}
+
+#modal-body input:focus{
+  outline: 1px solid #0E2431;
+}
+
+#modal-body input[type= "submit"]{
+  background-color: #359768;
+  color: black;
+  border: 1px solid #359768;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.3), -1px -1px 1px rgba(0, 0, 0, 0.17);
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+#modal-body input[type= "submit"]:hover{
+  cursor: pointer;
+  box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.3), -1px -1px 1px rgba(0, 0, 0, 0.17)
+}
+
+#modal-body p{
+  color: white;
+}
+
+#modal-body span{
+  cursor: pointer;
+  color: #359768;
+}
+
+@keyframes fade {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+#g{
+  background-color: #db3236;
+  color: white;
+  border: 1px solid #db3236;
+  cursor: pointer;
+  font-size: 28px;
+  width: 100%;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.3), -1px -1px 1px rgba(0, 0, 0, 0.17);
+}
+
+#g:hover{
+  color: white;
+}

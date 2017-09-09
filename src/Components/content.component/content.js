@@ -2,6 +2,7 @@ import React from 'react';
 import './content.css';
 import Banner from './banner.component/banner';
 import MovieInfo from './../movieinfo.component/movieinfo';
+import Player from './../player.component/player';
 
 class Content extends React.Component{
   
@@ -23,6 +24,13 @@ class Content extends React.Component{
     })
   }
 
+  handleWatchClick(data){
+    this.setState({
+      page: 3,
+      loadData: data
+    })
+  }
+
   renderElements(){
     if(this.state.page === 1){
       return(
@@ -31,7 +39,12 @@ class Content extends React.Component{
     }
     else if(this.state.page === 2){
       return(
-        <MovieInfo data={this.state.loadData} />
+        <MovieInfo data={this.state.loadData} navigate={this.handleWatchClick.bind(this)}/>
+      );
+    }
+    else if(this.state.page === 3){
+      return(
+        <Player data={this.state.loadData} />
       );
     }
   }

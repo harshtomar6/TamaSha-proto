@@ -49,6 +49,10 @@ class MovieInfo extends React.Component{
     })
   }
 
+  handlePlayClick(){
+    this.props.navigate(this.state.data.body.content[0]['play-link'])
+  }
+
   GenreContents(){
     var genres = this.state.data.body.content[0].meta.genre
 
@@ -65,17 +69,25 @@ class MovieInfo extends React.Component{
         <div id="bannerWraper">
           <div className="banner" style={this.state.styles}>
             <p className="text-center play-icon">
-              <i className="fa fa-play-circle"></i>
+              <i className="fa fa-play-circle" onClick={this.handlePlayClick.bind(this)}></i>
             </p>
           </div>
   
           <div className="info">
             <div className="thumb">
-              <img src={this.state.data.body.content[0].meta.thumb} className="img-responsive" />
+              <img src={this.state.data.body.content[0].meta.thumb} className="poster"/>
               <div className="movie-title">
-                <h2>{this.state.data.body.content[0]['movie-title']}</h2>
+                <h2>{this.state.data.body.content[0]['movie-title']}</h2><br />
                   <this.GenreContents /><br />
                   <p>{this.state.data.body.content[0]['movie-des']}</p>
+              </div>
+            </div>
+            <div className="meta-info">
+              <div className="left">
+                <span>Director : {this.state.data.body.content[0].meta.director}</span>
+              </div>
+              <div className="right">
+                <span>Country : {this.state.data.body.content[0].meta.country}</span>
               </div>
             </div>
           </div>

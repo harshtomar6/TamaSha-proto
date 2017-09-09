@@ -2,7 +2,7 @@
   z-index: 2;
   position: fixed;
   height: 100%;
-  background-color: #2A363B;
+  background-color: #0E2431;
   box-shadow: inset 3px 9px 20px rgba(0, 0, 0, 0.4);
   margin: 0;
   transition: 0.2s all;
@@ -15,7 +15,7 @@
   width:100%;
 }
 #sidebar ul li a{
-  color: #ace6c0;
+  color: #359768;
 }
 .hidden{
   width: 50px;
@@ -50,11 +50,11 @@
   margin-right: 0;
 }
 #sidebar ul li:hover{
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 #sidebar ul .active{
   color: black;
-  background: #ace6c0;
+  background: #359768;
 }
 
 #sidebar ul .active a{
@@ -62,5 +62,5 @@
 }
 
 #sidebar ul .active:hover{
-  background-color: #ace6c0;
+  background-color: #359768;
 }

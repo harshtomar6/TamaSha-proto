@@ -1,5 +1,6 @@
 import React from 'react';
 import './sidebar.css';
+import Spacer from './../spacer.component/spacer';
 const request = require('request');
 const config = require('./../../config')
 
@@ -8,7 +9,7 @@ class SideBar extends React.Component{
   constructor(){
     super();
     this.state = {
-      "class": ['active', '', '', '', ''],
+      "class": ['active', '', '', '', '', ''],
       "data":{"home": {}, "movies": {}, "tv": {}, "imdb": {}}
     };
     this.GetElements = this.GetElements.bind(this);
@@ -21,8 +22,6 @@ class SideBar extends React.Component{
     this.setState({
       class: this.state.class,
       data: {home: this.props.homeData, movies: this.state.data.movies, tv: {}, imdb: {}}
-    }, () => {
-      console.log(this.state)
     })
   }
 
@@ -39,6 +38,7 @@ class SideBar extends React.Component{
 
   getCurrentElementsIndex(e){
     var nodes = Array.prototype.slice.call(e.currentTarget.parentNode.children)
+    nodes.splice(5, 1)
     var currentIndex = nodes.indexOf(e.currentTarget)
     return currentIndex
   }
@@ -127,6 +127,13 @@ class SideBar extends React.Component{
             })
           })
         break;
+      case 4:
+        console.log("Genre")  
+        break;
+      case 5:
+        this.props.toggleUserModal()
+        break;
+
     }
   }
 
@@ -136,20 +143,24 @@ class SideBar extends React.Component{
     if(classname === 'hidden')
       return(
         <ul>
-          <li className={this.state.class[0]} data-toggle="tooltip" title="Home" onClick={this.handleClick.bind(this)}>
+          <li className={this.state.class[0]} title="Home" onClick={this.handleClick.bind(this)}>
             <a href="#"><i className="fa fa-home"></i></a>
           </li>
-          <li className={this.state.class[1]} data-toggle="tooltip" title="All Movies" onClick={this.handleClick.bind(this)}>
+          <li className={this.state.class[1]} title="All Movies" onClick={this.handleClick.bind(this)}>
             <a href="#"><i className="fa fa-film"></i></a>
           </li>
-          <li className={this.state.class[2]} data-toggle="tooltip" title="TV-Series" onClick={this.handleClick.bind(this)}>
+          <li className={this.state.class[2]} title="TV-Series" onClick={this.handleClick.bind(this)}>
             <a href="#"><i className="fa fa-television"></i></a>
           </li>
-          <li className={this.state.class[3]} data-toggle="tooltip" title="Top IMDB" onClick={this.handleClick.bind(this)}>
+          <li className={this.state.class[3]} title="Top IMDB" onClick={this.handleClick.bind(this)}>
             <a href="#"><i className="fa fa-imdb"></i></a>
           </li>
-          <li className={this.state.class[4]} data-toggle="tooltip" title="Genre" onClick={this.handleClick.bind(this)}>
+          <li className={this.state.class[4]} title="Genre" onClick={this.handleClick.bind(this)}>
             <a href="#"><i className="fa fa-tags"></i></a>
+          </li>
+          <Spacer height="250"/>
+          <li className={this.state.class[5]} title="User" onClick={this.handleClick.bind(this)}>
+            <a href="#"><i className="fa fa-user"></i></a>
           </li>
         </ul>
       );
@@ -170,8 +181,11 @@ class SideBar extends React.Component{
           </li>
           <li className={this.state.class[4]} onClick={this.handleClick.bind(this)}>
             <i className="fa fa-tags"></i>  Genre
-            <i className="fa fa-caret-down"></i>
           </li>
+          <Spacer height="250"/>
+          <li className={this.state.class[5]} onClick={this.handleClick.bind(this)}>
+            <i className="fa fa-user"></i>  User
+          </li> 
         </ul>
       );
   }

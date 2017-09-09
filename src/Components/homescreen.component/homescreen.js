@@ -2,6 +2,7 @@ import React from 'react';
 import TopBar from './../topbar.component/topbar';
 import SideBar from './../sidebar.component/sidebar';
 import Content from './../content.component/content';
+import User from './../user.component/user';
 
 class HomeScreen extends React.Component{
   
@@ -11,25 +12,35 @@ class HomeScreen extends React.Component{
       class: 'hidden',
       contentClass: 'normal',
       page: 1,
-      loadData: ''
+      loadData: '',
+      toggleModal: false
     }
+
+    this.handleToggle = this.handleToggle.bind(this)
   }
 
   handleToggle(classname){
     this.setState({
             class: classname.class, 
-            contentClass: classname.contentClass, 
-            page: this.state.page, 
-            loadData: this.state.loadData
+            contentClass: classname.contentClass,
+            toggleModal: false
           })
+  }
+
+  modal(){
+    this.setState({
+      toggleModal: true
+    })
+
   }
 
   render(){
     return (
-      <div>
-        <TopBar toggle={this.handleToggle.bind(this)}/>
-        <SideBar class={this.state.class} homeData={this.props.data}/>
+      <div style={{height: '100%'}}>
+        <TopBar toggle={this.handleToggle}/>
+        <SideBar class={this.state.class} homeData={this.props.data} toggleUserModal={this.modal.bind(this)}/>
         <Content data={this.props.data} class={this.state.contentClass} />
+        <User toggleUser={this.state.toggleModal} />
       </div>
     );
   }
