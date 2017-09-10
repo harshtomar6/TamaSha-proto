@@ -53,6 +53,10 @@ class MovieInfo extends React.Component{
     this.props.navigate(this.state.data.body.content[0]['play-link'])
   }
 
+  handleStreamClick(){
+    this.props.navigate(this.state.data.body.content[0].streamango)
+  }
+
   GenreContents(){
     var genres = this.state.data.body.content[0].meta.genre
 
@@ -89,6 +93,7 @@ class MovieInfo extends React.Component{
               <div className="right">
                 <span>Country : {this.state.data.body.content[0].meta.country}</span>
               </div>
+              <p onClick={this.handleStreamClick.bind(this)}>Streamango Server</p>
             </div>
           </div>
         </div>

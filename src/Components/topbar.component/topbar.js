@@ -7,8 +7,38 @@ class TopBar extends React.Component{
     super()
     this.state = {
       class: 'hidden',
-      contentClass: 'normal'
+      contentClass: 'normal',
+      back:{
+        display: 'none'
+      },
+      bar:{
+        left: 0
+      },
+      backPage: 0
     }
+  }
+
+  componentWillReceiveProps(nextProps){
+    if(nextProps.page > 1)   
+      this.setState({
+        back: {
+          display: 'block'
+        },
+        bar:{
+          left: '50px'
+        },
+        backPage: nextProps.page-1
+      })
+      else
+        this.setState({
+          back: {
+            display: 'none'
+          },
+          bar:{
+            left: 0
+          },
+          backPage: 1
+        })
   }
 
   toggleSidebar(){    
@@ -24,6 +54,10 @@ class TopBar extends React.Component{
     }
   }
 
+  back(){
+    this.props.goBack(this.state.backPage)
+  }
+
   handleSearch(){
     
   }
@@ -31,7 +65,9 @@ class TopBar extends React.Component{
   render(){
     return(
       <div id="topbar">
-        <a href="#" onClick={this.toggleSidebar.bind(this)}><i className="fa fa-bars"></i></a>
+        <a href="#" style={this.state.back} onClick={this.back.bind(this)}>
+          <i className="fa fa-arrow-circle-left"></i></a>
+        <a href="#" style={this.state.bar} onClick={this.toggleSidebar.bind(this)}><i className="fa fa-bars"></i></a>
         <h3 className="text-center">TamaSha</h3>
         <a href="#" className="searchIcon" onClick={this.handleSearch.bind(this)}><i className="fa fa-search"></i></a>
       </div>

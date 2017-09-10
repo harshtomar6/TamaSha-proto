@@ -17,7 +17,8 @@ class Splash extends React.Component{
   componentDidMount(){
     request.get(config.SERVER_URI, (err, res, body) => {
       if(!err && res.statusCode === 200){
-        this.setState({"data": JSON.parse(body), "loaded": true}, () => {
+        var d = JSON.parse(body)
+        this.setState({"data": d.body, "loaded": true}, () => {
           this.props.isLoaded(this.state)
         })
       }

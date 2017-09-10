@@ -1,0 +1,38 @@
+#row{
+  margin: 20px 9px;
+  height: 290px;
+  box-shadow: 3px 2px 5px rgba(0, 0, 0, 0.5), -2px -2px 5px rgba(0, 0, 0, 0.4);
+}
+
+#row-head{
+  padding: 12px;
+}
+
+#row-body{
+  padding-top: 5px;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  display: flex;
+}
+
+#row-body::-webkit-scrollbar{
+  display: none;
+}
+
+#row-body img{
+  height: 220px;
+  width: 150px;
+}
+
+.mv-card{
+  margin: 0 10px; 
+}
+
+.meta-data{
+  background-color: rgba(0, 0, 0, 0.7);
+  position: relative;
+  top: -220px;
+  width: 150px;
+  overflow: hidden;
+  transition: all 0.5s;
+}

@@ -34,12 +34,27 @@ class HomeScreen extends React.Component{
 
   }
 
+  pageSet(data){
+    this.setState({
+      page: data,
+      toggleModal: false
+    })
+  }
+
+  handleBack(data){
+    this.setState({
+      page: data,
+      toggleModal: false
+    })
+  }
+
   render(){
     return (
       <div style={{height: '100%'}}>
-        <TopBar toggle={this.handleToggle}/>
+        <TopBar toggle={this.handleToggle} page={this.state.page} goBack={this.handleBack.bind(this)}/>
         <SideBar class={this.state.class} homeData={this.props.data} toggleUserModal={this.modal.bind(this)}/>
-        <Content data={this.props.data} class={this.state.contentClass} />
+        <Content data={this.props.data} 
+          class={this.state.contentClass} setPage={this.pageSet.bind(this)} back={this.state.page}/>
         <User toggleUser={this.state.toggleModal} />
       </div>
     );
