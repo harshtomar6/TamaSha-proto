@@ -50,7 +50,7 @@ class Content extends React.Component{
       return(
         <div>
           <Banner data={this.props.data.top_data} handleNav={this.navigate.bind(this)} />
-          <Row data={this.props.data.content} />
+          <Row data={this.props.data.content} handleNav={this.navigate.bind(this)} />
         </div>
       );
     }

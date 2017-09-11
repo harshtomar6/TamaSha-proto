@@ -1,5 +1,6 @@
 import React from 'react';
 import './topbar.css';
+import Search from './search';
 
 class TopBar extends React.Component{
 
@@ -14,7 +15,8 @@ class TopBar extends React.Component{
       bar:{
         left: 0
       },
-      backPage: 0
+      backPage: 0,
+      searchToggle: false
     }
   }
 
@@ -59,10 +61,30 @@ class TopBar extends React.Component{
   }
 
   handleSearch(){
-    
+    this.setState({
+      searchToggle: true
+    })
+  }
+
+  toggleSearch(){
+    this.setState({
+      searchToggle: false
+    })
   }
 
   render(){
+    if(this.state.searchToggle)
+      return(
+        <div id="topbar">
+          <a href="#" style={this.state.back} onClick={this.back.bind(this)}>
+            <i className="fa fa-arrow-circle-left"></i></a>
+          <a href="#" style={this.state.bar} onClick={this.toggleSidebar.bind(this)}><i className="fa fa-bars"></i></a>
+          <h3 className="text-center">TamaSha</h3>
+          <a href="#" className="searchIcon" onClick={this.handleSearch.bind(this)}><i className="fa fa-search"></i></a>
+          <Search toggleSearch={this.toggleSearch.bind(this)}/>
+        </div>  
+      )
+    else
     return(
       <div id="topbar">
         <a href="#" style={this.state.back} onClick={this.back.bind(this)}>

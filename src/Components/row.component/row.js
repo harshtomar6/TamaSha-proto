@@ -1,5 +1,6 @@
 import React from 'react';
 import './row.css'
+import Element from './Elements'
 
 class Row extends React.Component {
   
@@ -13,30 +14,16 @@ class Row extends React.Component {
     this.movieElements = this.movieElements.bind(this)
   }
 
-  mouseEnter(e){
-    //e.target.nextSibling.style.height = 220+'px'
-  }
-
-  mouseLeave(e){
-    //e.target.style.height = 0;
-  }
-
-  handleClick(e){
-
+  handleNavigate(data){
+    this.props.handleNav(data)
   }
 
   movieElements(){
     var list = this.props.data[0].content
 
     var items = list.map((item) =>  
-                  <div className="mv-card" key={item._id} onMouseEnter={this.mouseEnter.bind(this)} 
-                  onMouseLeave={this.mouseLeave.bind(this)} onClick={this.handleClick.bind(this)}>
-                    <img src={item.image}/>
-                    <div className="meta-data" style={this.state.meta}>
-                      <h5 className="text-center">{item.name}</h5>
-                    </div>
-                  </div>
-                  )
+                  <Element data={item} key={item._id} navigateTo={this.handleNavigate.bind(this)}/>
+                )
 
     return <div id="row-body">{items}</div>
   }

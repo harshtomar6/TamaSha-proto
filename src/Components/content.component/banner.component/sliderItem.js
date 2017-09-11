@@ -17,7 +17,8 @@ class SliderItem extends React.Component{
     this.setState({
       "styles": {
         "backgroundImage": 'url("'+this.props.data.image+'")',
-        "backgroundSize": "cover"
+        "backgroundSize": "cover",
+        "backgroundPosition": "center"
       }
     })
   }
