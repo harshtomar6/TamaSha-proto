@@ -11,7 +11,7 @@ class Player extends React.Component {
 
     this.state = {
       data: '',
-      loaded: false
+      loaded: true
     }
 
     this.initialize = this.initialize.bind(this)
@@ -20,7 +20,7 @@ class Player extends React.Component {
   componentWillMount(){
     var movieURL = this.props.data
 
-    request.post({
+    /*request.post({
       url: config.SERVER_URI+'/play-movie',
       form: {'movie-url': movieURL}
     }, (err, res, body) => {
@@ -33,12 +33,13 @@ class Player extends React.Component {
           })
         })
       }
-    })
+    })*/
   }
 
   initialize(){
     if(this.state.loaded){
-      return <iframe sandbox="allow-scripts allow-same-origin allow-forms" src={this.state.data} allowFullScreen id="player"></iframe>
+     //<iframe sandbox="allow-scripts allow-same-origin allow-forms" src={this.props.data} allowFullScreen id="player"></iframe>
+     return <video src={this.props.data} controls></video>
     }else
       return <Loader width="60px" height="60px" left="48%" top="50%" />
   }

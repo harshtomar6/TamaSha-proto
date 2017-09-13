@@ -24,12 +24,13 @@ class MovieInfo extends React.Component{
   }
 
   componentWillMount(){
-    var loadURL = this.props.data
+    var loadURL = this.props.data.loadURL
+    var name = this.props.data.name
     console.log(loadURL)
 
     request.post({
         url: config.SERVER_URI+'/watch-movie', 
-        form: {'movie-url': loadURL}
+        form: {'movie-url': loadURL, 'movie-name': name}
       }, (err, res, body) => {
 
         if(!err && res.statusCode === 200){
@@ -50,7 +51,7 @@ class MovieInfo extends React.Component{
   }
 
   handlePlayClick(){
-    this.props.navigate(this.state.data.body.content[0]['play-link'])
+    this.props.navigate(this.state.data.body.content[0]['playLink'])
   }
 
   handleStreamClick(){
