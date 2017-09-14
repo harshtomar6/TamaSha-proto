@@ -69,9 +69,8 @@
 .below{
   position: relative;
   text-align: center;
-  bottom: 150px;
   left: 2%;
-  bottom: 10%;
+  bottom: 20%;
 }
 .below p .active{
   background: none;
@@ -90,24 +89,30 @@
 
 .nav-btn{
   background-color: transparent;
-  position: absolute;
+  position: relative;
   font-size: 28px;
   color:#359768;;
   z-index: 1;
-  top: 40%;
+  bottom: 300px;
   cursor: pointer;
+}
+
+.nav-btn:focus {
+  border: none !important;
+  outline: none !important;
+}
+
+.btn i:focus{
+  outline: none;
+  border: none;
 }
 
 .next-button{
   transition: background 0.5s;
+  float: right;
   right: 0;
 }
 
 .back-button{
   transition: background 0.5s;
-  left: 5%;
-}
-
-.btn i{
-  margin-left: -25px;
 }
