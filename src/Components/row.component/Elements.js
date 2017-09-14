@@ -20,9 +20,10 @@ class Element extends React.Component {
   }
 
   handleClick(){
-    var watchLink = this.props.data.infoLink
+    var infoLink = this.props.data.infoLink
+    var name = this.props.data.name
 
-    this.props.navigateTo(watchLink)
+    this.props.navigateTo({loadURL: infoLink, name: name})
   }
 
   render(){
