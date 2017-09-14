@@ -28,6 +28,7 @@ html, body {
   font-family: sans-serif;
   background-color: #0E2431;
   height: 100%;
+  overflow-x: hidden;
 }
 
 #root{
