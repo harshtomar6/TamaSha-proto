@@ -1,6 +1,5 @@
 import React from 'react';
 import './player.css'
-import Loader from './../loader.component/loader';
 import videojs from 'video.js';
 const request = require('request')
 const config = require('./../../config')
@@ -59,6 +58,8 @@ class Player extends React.Component {
     this.player = videojs(this.videoNode, this.props, function onPlayerReady(){
       console.log('onPlayerReady', this)
     })
+
+    this.playerWrap.focus()
   }
 
   componentWillUnmount(){
@@ -66,18 +67,29 @@ class Player extends React.Component {
       //this.player.dispose()
   }
 
+  handleDoubleClick(){
+    if(this.player.isFullscreen())
+      this.player.requestFullscreen()
+    else
+      this.player.exitFullscreen()
+  }
+
+  handleKeyPress(e){
+    if(e.keyCode === 32)
+      if(this.player.paused())
+        this.player.play()
+      else
+        this.player.pause()
+  }
+
   initialize(){
-    if(this.state.loaded){
-     //<iframe sandbox="allow-scripts allow-same-origin allow-forms" src={this.props.data} allowFullScreen id="player"></iframe>
-     return (
-      <div data-vjs-player>
+    return (
+      <div data-vjs-player onDoubleClick={this.handleDoubleClick.bind(this)} onKeyDown={this.handleKeyPress.bind(this)} ref={(p) => this.playerWrap = p}>
         <video ref={node => this.videoNode = node } className="video-js" data-setup='{"controls": true, "autoplay": true, "preload": "auto"}'>
           <source src={this.props.data} type="video/mp4" />
         </video>
       </div>
      )
-    }else
-      return <Loader width="60px" height="60px" left="48%" top="50%" />
   }
   
   render(){
