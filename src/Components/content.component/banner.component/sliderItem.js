@@ -27,7 +27,7 @@ class SliderItem extends React.Component{
     var infoLink = this.props.data.watchLink
     var name = this.props.data.name
 
-    this.props.navigate({loadURL: infoLink, name: name})
+    this.props.navigate({loadURL: infoLink, name: name, banner: true})
   }
 
   render(){   

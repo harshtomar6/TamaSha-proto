@@ -26,6 +26,7 @@ class MovieInfo extends React.Component{
   componentWillMount(){
     var loadURL = this.props.data.loadURL
     var name = this.props.data.name
+    var banner = this.props.data.banner
     console.log(loadURL)
 
     request.post({

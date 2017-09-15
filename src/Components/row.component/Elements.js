@@ -23,7 +23,7 @@ class Element extends React.Component {
     var infoLink = this.props.data.infoLink
     var name = this.props.data.name
 
-    this.props.navigateTo({loadURL: infoLink, name: name})
+    this.props.navigateTo({loadURL: infoLink, name: name, banner: false })
   }
 
   render(){
