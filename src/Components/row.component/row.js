@@ -19,7 +19,7 @@ class Row extends React.Component {
   }
 
   movieElements(){
-    var list = this.props.data[0].content
+    var list = this.props.data.content
 
     var items = list.map((item) =>  
                   <Element data={item} key={item._id} navigateTo={this.handleNavigate.bind(this)}/>
@@ -32,7 +32,7 @@ class Row extends React.Component {
     return(
       <div id="row">
         <div id="row-head">
-          <h5>{this.props.data[0].listName}</h5>
+          <h5>{this.props.data.listName}</h5>
         </div>
         <this.movieElements />
       </div>

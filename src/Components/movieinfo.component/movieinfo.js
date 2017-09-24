@@ -84,7 +84,7 @@ class MovieInfo extends React.Component{
               <div className="movie-title">
                 <h2>{this.state.data.body.content['name']}</h2><br />
                   <this.GenreContents /><br />
-                  <p>{this.state.data.body.content['movie-des']}</p>
+                  <p>{this.state.data.body.content.description}</p>
               </div>
             </div>
             <div className="meta-info">

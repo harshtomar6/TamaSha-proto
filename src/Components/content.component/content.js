@@ -16,6 +16,7 @@ class Content extends React.Component{
       prevData: ''
     }
 
+    this.mapLists = this.mapLists.bind(this)
     this.renderElements = this.renderElements.bind(this)
   }
 
@@ -45,12 +46,21 @@ class Content extends React.Component{
     })
   }
 
+  mapLists(){
+
+    var items = this.props.data.content.map(item => 
+      <Row data={item} handleNav={this.navigate.bind(this)} />
+    )
+
+    return <div>{items}</div>
+  }
+
   renderElements(){
     if(this.state.page === 1){
       return(
         <div>
           <Banner data={this.props.data.top_data} handleNav={this.navigate.bind(this)} />
-          <Row data={this.props.data.content} handleNav={this.navigate.bind(this)} />
+          < this.mapLists />
         </div>
       );
     }

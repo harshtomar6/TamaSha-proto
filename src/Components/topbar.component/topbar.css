@@ -71,3 +71,30 @@
 #search-bar:focus{
   outline: 1px solid #0E2431;
 }
+
+#ajax-result{
+  height: 500px;
+  overflow: scroll;
+}
+
+.result-wraper{
+  display: flex;
+  justify-content: space-around;
+  height: 100px;
+}
+
+.img-result{
+  width: 100px;
+  height: 100px;
+}
+
+.img-result img{
+  width: 100px;
+  height: 100px;  
+}
+
+.info-result{
+  width: 100%;
+  color: black;
+  background: white;
+}
