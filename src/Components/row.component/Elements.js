@@ -20,17 +20,16 @@ class Element extends React.Component {
   }
 
   handleClick(){
-    var infoLink = this.props.data.infoLink
     var name = this.props.data.name
-
-    this.props.navigateTo({loadURL: infoLink, name: name, banner: false })
+    
+    this.props.navigateTo({name: name, banner: false })
   }
 
   render(){
     return(
       <div className="mv-card" onMouseEnter={this.mouseEnter.bind(this)} 
       onMouseLeave={this.mouseLeave.bind(this)} onClick={this.handleClick.bind(this)}>
-        <img src={this.props.data.image}/>
+        <img src={this.props.data.thumbnail}/>
         <div className="meta-data" style={this.state.meta}>
           <h5 className="text-center">{this.props.data.name}</h5>
         </div>

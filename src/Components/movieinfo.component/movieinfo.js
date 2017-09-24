@@ -24,14 +24,13 @@ class MovieInfo extends React.Component{
   }
 
   componentWillMount(){
-    var loadURL = this.props.data.loadURL
     var name = this.props.data.name
     var banner = this.props.data.banner
-    console.log(loadURL)
+    console.log(banner)
 
     request.post({
         url: config.SERVER_URI+'/watch-movie', 
-        form: {'movie-url': loadURL, 'movie-name': name}
+        form: {'movie-name': name, 'banner': banner}
       }, (err, res, body) => {
 
         if(!err && res.statusCode === 200){
@@ -41,7 +40,7 @@ class MovieInfo extends React.Component{
           }, () => {
             this.setState({
               styles: {
-                background: "url("+this.state.data.body.content[0]['movie-banner']+")",
+                background: "url("+this.state.data.body.content['image']+")",
                 backgroundSize: 'Cover'
               }
             })
@@ -52,7 +51,7 @@ class MovieInfo extends React.Component{
   }
 
   handlePlayClick(){
-    this.props.navigate(this.state.data.body.content[0]['playLink'])
+    this.props.navigate(this.state.data.body.content['playLink'])
   }
 
   handleStreamClick(){
@@ -60,7 +59,7 @@ class MovieInfo extends React.Component{
   }
 
   GenreContents(){
-    var genres = this.state.data.body.content[0].meta.genre
+    var genres = this.state.data.body.content.meta.genre
 
     const items = genres.map( genre  => 
       <span className="genre">{genre}</span>
@@ -81,21 +80,20 @@ class MovieInfo extends React.Component{
   
           <div className="info">
             <div className="thumb">
-              <img src={this.state.data.body.content[0].meta.thumb} className="poster"/>
+              <img src={this.state.data.body.content.thumbnail} className="poster"/>
               <div className="movie-title">
-                <h2>{this.state.data.body.content[0]['movie-title']}</h2><br />
+                <h2>{this.state.data.body.content['name']}</h2><br />
                   <this.GenreContents /><br />
-                  <p>{this.state.data.body.content[0]['movie-des']}</p>
+                  <p>{this.state.data.body.content['movie-des']}</p>
               </div>
             </div>
             <div className="meta-info">
               <div className="left">
-                <span>Director : {this.state.data.body.content[0].meta.director}</span>
+                <span>Director : {this.state.data.body.content.meta.director}</span>
               </div>
               <div className="right">
-                <span>Country : {this.state.data.body.content[0].meta.country}</span>
+                <span>Country : {this.state.data.body.content.meta.country}</span>
               </div>
-              <p onClick={this.handleStreamClick.bind(this)}>Streamango Server</p>
             </div>
           </div>
         </div>

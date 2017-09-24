@@ -24,10 +24,9 @@ class SliderItem extends React.Component{
   }
 
   handle_click(){
-    var infoLink = this.props.data.watchLink
     var name = this.props.data.name
 
-    this.props.navigate({loadURL: infoLink, name: name, banner: true})
+    this.props.navigate({name: name, banner: true})
   }
 
   render(){   
