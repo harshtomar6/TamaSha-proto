@@ -1,11 +1,17 @@
 #row{
   margin: 20px 9px;
-  height: 290px;
-  box-shadow: 3px 2px 5px rgba(0, 0, 0, 0.5), -2px -2px 5px rgba(0, 0, 0, 0.4);
+  height: 340px;
+  box-shadow: 3px 2px 5px rgba(0, 0, 0, 0.3), -2px -2px 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 50px;
 }
 
 #row-head{
   padding: 12px;
+}
+
+#row-head h4{
+  font-family: 'Roboto';
+  
 }
 
 #row-body{
@@ -13,6 +19,7 @@
   overflow-y: hidden;
   overflow-x: scroll;
   display: flex;
+  padding-bottom: 20px;
 }
 
 #row-body::-webkit-scrollbar{
@@ -20,12 +27,18 @@
 }
 
 #row-body img{
-  height: 220px;
-  width: 150px;
+  height: 230px;
+  width: 160px;
+  border: 1px solid #359768;
 }
 
 .mv-card{
-  margin: 0 10px; 
+  margin: 0 10px;
+  cursor: pointer; 
+}
+
+.mv-card:hover{
+  box-shadow: 12px 10px 20px rgba(0, 0, 0, 0.3), -10px -8px 10px rgba(0, 0, 0, 0.2);
 }
 
 .meta-data{

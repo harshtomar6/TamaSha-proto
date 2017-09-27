@@ -32,7 +32,7 @@ class Row extends React.Component {
     return(
       <div id="row">
         <div id="row-head">
-          <h5>{this.props.data.listName}</h5>
+          <h4>{this.props.data.listName}</h4>
         </div>
         <this.movieElements />
       </div>

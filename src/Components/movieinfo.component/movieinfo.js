@@ -26,6 +26,7 @@ class MovieInfo extends React.Component{
   componentWillMount(){
     var name = this.props.data.name
     var banner = this.props.data.banner
+    console.log(name)
     console.log(banner)
 
     request.post({
@@ -34,7 +35,7 @@ class MovieInfo extends React.Component{
       }, (err, res, body) => {
 
         if(!err && res.statusCode === 200){
-
+          console.log(body)
           this.setState({
             data: JSON.parse(body),
           }, () => {
